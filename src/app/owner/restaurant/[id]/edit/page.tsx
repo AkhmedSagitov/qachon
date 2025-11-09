@@ -42,12 +42,12 @@ export default async function EditRestaurantPage({
     <div className="container mx-auto px-4 py-8 max-w-4xl">
       <Link
         href={`/owner/restaurant/${id}`}
-        className="inline-block mb-4 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
+        className="inline-block mb-4 text-gray-600 hover:text-gray-900"
       >
         {content.nav.back}
       </Link>
       <h1 className="text-3xl font-bold mb-8">{content.restaurant.edit}</h1>
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+      <div className="bg-white rounded-lg shadow-md p-6">
         {regions && (
           <RestaurantEditForm
             restaurant={serializedRestaurant}

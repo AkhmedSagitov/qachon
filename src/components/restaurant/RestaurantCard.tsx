@@ -15,7 +15,7 @@ export default function RestaurantCard({ restaurant }: Props) {
   return (
     <Link
       href={`/restaurant/${restaurant.slug}`}
-      className="w-full bg-white dark:bg-gray-800 rounded-lg shadow-md hover:scale-105 hover:shadow-xl hover:shadow-uzbek-burgundy/20 transition-all overflow-hidden block border border-transparent hover:border-uzbek-burgundy/30"
+      className="w-full bg-white rounded-lg shadow-md hover:scale-105 hover:shadow-xl hover:shadow-uzbek-burgundy/20 transition-all overflow-hidden block border border-transparent hover:border-uzbek-burgundy/30"
     >
       <div className="relative">
         <SafeImage
@@ -30,14 +30,14 @@ export default function RestaurantCard({ restaurant }: Props) {
         </div>
       </div>
       <div className="p-3 sm:p-4">
-        <h3 className="text-base sm:text-lg font-bold mb-1 sm:mb-2 text-gray-900 dark:text-white line-clamp-1">{restaurant.name}</h3>
-        <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-2 flex items-center gap-1">
+        <h3 className="text-base sm:text-lg font-bold mb-1 sm:mb-2 text-gray-900 line-clamp-1">{restaurant.name}</h3>
+        <p className="text-xs sm:text-sm text-gray-500 mb-2 flex items-center gap-1">
           <span className="text-uzbek-slate">📍</span>
           <span className="truncate">{restaurant.city}, {restaurant.region.name}</span>
         </p>
-        <p className="text-xs sm:text-sm line-clamp-2 mb-2 sm:mb-3 text-gray-600 dark:text-gray-300">{restaurant.description}</p>
+        <p className="text-xs sm:text-sm line-clamp-2 mb-2 sm:mb-3 text-gray-600">{restaurant.description}</p>
         <div className="flex gap-2 flex-wrap">
-          <span className="px-2 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs rounded-full bg-uzbek-burgundy/10 text-uzbek-burgundy dark:bg-uzbek-burgundy/20 font-medium border border-uzbek-burgundy/20">
+          <span className="px-2 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs rounded-full bg-uzbek-burgundy/10 text-uzbek-burgundy font-medium border border-uzbek-burgundy/20">
             {content.restaurant.capacityDisplay(restaurant.capacity)}
           </span>
         </div>

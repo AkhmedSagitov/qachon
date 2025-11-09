@@ -25,7 +25,7 @@ export default async function Home({
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
       {/* Hero Section */}
-      <div className="text-center mb-8 sm:mb-12 bg-white dark:bg-gray-800 rounded-2xl p-6 sm:p-10 border-2 border-uzbek-burgundy/30 shadow-lg">
+      <div className="text-center mb-8 sm:mb-12 bg-white rounded-2xl p-6 sm:p-10 border-2 border-uzbek-burgundy/30 shadow-lg">
         <div className="inline-block mb-4">
           <Image
             src="/logo-new.png"
@@ -39,7 +39,7 @@ export default async function Home({
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-uzbek-burgundy">
           {content.home.title}
         </h1>
-        <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 mb-4 sm:mb-6 px-2 max-w-2xl mx-auto">
+        <p className="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6 px-2 max-w-2xl mx-auto">
           {content.home.description}
         </p>
 
@@ -67,7 +67,7 @@ export default async function Home({
       </div>
 
       {/* CTA for Owners */}
-      <div className="mt-8 sm:mt-16 relative overflow-hidden bg-white dark:bg-gray-800 rounded-2xl p-8 sm:p-10 text-center shadow-xl border-4 border-uzbek-champagne">
+      <div className="mt-8 sm:mt-16 relative overflow-hidden bg-white rounded-2xl p-8 sm:p-10 text-center shadow-xl border-4 border-uzbek-champagne">
         {/* Decorative background */}
         <div className="absolute inset-0 bg-gradient-to-br from-uzbek-burgundy/5 via-uzbek-champagne/5 to-uzbek-slate/5"></div>
 
@@ -78,7 +78,7 @@ export default async function Home({
           <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-uzbek-burgundy">
             {content.home.ctaTitle}
           </h3>
-          <p className="mb-6 text-base sm:text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="mb-6 text-base sm:text-lg text-gray-700 max-w-2xl mx-auto">
             {content.home.ctaDescription}
           </p>
           <Link

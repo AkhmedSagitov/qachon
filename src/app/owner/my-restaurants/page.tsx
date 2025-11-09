@@ -27,8 +27,8 @@ export default async function MyRestaurantsPage() {
       </div>
 
       {!restaurants || restaurants.length === 0 ? (
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-12 text-center">
-          <p className="text-lg text-gray-500 dark:text-gray-400 mb-4">
+        <div className="bg-white rounded-lg shadow-md p-12 text-center">
+          <p className="text-lg text-gray-500 mb-4">
             {content.restaurant.noRestaurantsOwner}
           </p>
           <Link

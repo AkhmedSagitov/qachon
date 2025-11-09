@@ -112,7 +112,7 @@ export default function SlotForms({ restaurantId, defaultPrice, defaultCapacity,
           className={`px-4 py-2 rounded-lg transition ${
             !showBulkForm
               ? "bg-blue-600 text-white"
-              : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
+              : "bg-gray-200 text-gray-700"
           }`}
         >
           {content.slot.singleSlotTab}
@@ -122,7 +122,7 @@ export default function SlotForms({ restaurantId, defaultPrice, defaultCapacity,
           className={`px-4 py-2 rounded-lg transition ${
             showBulkForm
               ? "bg-blue-600 text-white"
-              : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
+              : "bg-gray-200 text-gray-700"
           }`}
         >
           {content.slot.multipleSlotTab}
@@ -131,11 +131,11 @@ export default function SlotForms({ restaurantId, defaultPrice, defaultCapacity,
 
       {!showBulkForm ? (
         /* Single Slot Form */
-        <form onSubmit={handleSingleSlot} className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 space-y-4">
+        <form onSubmit={handleSingleSlot} className="bg-white rounded-lg shadow-md p-6 space-y-4">
           <h3 className="text-lg font-bold">{content.slot.createSingle}</h3>
 
           <div className="flex flex-col gap-1">
-            <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
+            <label className="text-gray-700 font-medium text-sm">
               {content.slot.dateLabel}
             </label>
             <Input
@@ -148,7 +148,7 @@ export default function SlotForms({ restaurantId, defaultPrice, defaultCapacity,
 
           <div className="grid grid-cols-2 gap-4">
             <div className="flex flex-col gap-1">
-              <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
+              <label className="text-gray-700 font-medium text-sm">
                 {content.slot.startTimeLabel}
               </label>
               <Input
@@ -159,7 +159,7 @@ export default function SlotForms({ restaurantId, defaultPrice, defaultCapacity,
               />
             </div>
             <div className="flex flex-col gap-1">
-              <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
+              <label className="text-gray-700 font-medium text-sm">
                 {content.slot.endTimeLabel}
               </label>
               <Input
@@ -172,21 +172,21 @@ export default function SlotForms({ restaurantId, defaultPrice, defaultCapacity,
           </div>
 
           <div className="flex flex-col gap-1">
-            <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
+            <label className="text-gray-700 font-medium text-sm">
               {content.slot.eventTypeLabel}
             </label>
             <Select
               selectedKeys={[singleEventType]}
               onChange={(e) => setSingleEventType(e.target.value as EventType)}
               classNames={{
-                trigger: "bg-white dark:bg-gray-800",
-                value: "text-gray-900 dark:text-white",
-                listbox: "bg-white dark:bg-gray-800",
-                popoverContent: "bg-white dark:bg-gray-800",
+                trigger: "bg-white",
+                value: "text-gray-900",
+                listbox: "bg-white",
+                popoverContent: "bg-white",
               }}
             >
               {eventTypes.map((type) => (
-                <SelectItem key={type.value} textValue={type.label} className="text-gray-900 dark:text-white">
+                <SelectItem key={type.value} textValue={type.label} className="text-gray-900">
                   {type.label}
                 </SelectItem>
               ))}
@@ -194,7 +194,7 @@ export default function SlotForms({ restaurantId, defaultPrice, defaultCapacity,
           </div>
 
           <div className="flex flex-col gap-1">
-            <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
+            <label className="text-gray-700 font-medium text-sm">
               {content.slot.priceLabel}
             </label>
             <Input
@@ -218,15 +218,15 @@ export default function SlotForms({ restaurantId, defaultPrice, defaultCapacity,
         </form>
       ) : (
         /* Bulk Slots Form */
-        <form onSubmit={handleBulkSlots} className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 space-y-4">
+        <form onSubmit={handleBulkSlots} className="bg-white rounded-lg shadow-md p-6 space-y-4">
           <h3 className="text-lg font-bold">{content.slot.createMultiple}</h3>
-          <p className="text-sm text-gray-600 dark:text-gray-400">
+          <p className="text-sm text-gray-600">
             {content.slot.bulkDescription}
           </p>
 
           <div className="grid grid-cols-2 gap-4">
             <div className="flex flex-col gap-1">
-              <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
+              <label className="text-gray-700 font-medium text-sm">
                 {content.slot.startDateLabel}
               </label>
               <Input
@@ -237,7 +237,7 @@ export default function SlotForms({ restaurantId, defaultPrice, defaultCapacity,
               />
             </div>
             <div className="flex flex-col gap-1">
-              <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
+              <label className="text-gray-700 font-medium text-sm">
                 {content.slot.endDateLabel}
               </label>
               <Input
@@ -251,7 +251,7 @@ export default function SlotForms({ restaurantId, defaultPrice, defaultCapacity,
 
           <div className="grid grid-cols-2 gap-4">
             <div className="flex flex-col gap-1">
-              <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
+              <label className="text-gray-700 font-medium text-sm">
                 {content.slot.startTimeLabel}
               </label>
               <Input
@@ -262,7 +262,7 @@ export default function SlotForms({ restaurantId, defaultPrice, defaultCapacity,
               />
             </div>
             <div className="flex flex-col gap-1">
-              <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
+              <label className="text-gray-700 font-medium text-sm">
                 {content.slot.endTimeLabel}
               </label>
               <Input
@@ -275,21 +275,21 @@ export default function SlotForms({ restaurantId, defaultPrice, defaultCapacity,
           </div>
 
           <div className="flex flex-col gap-1">
-            <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
+            <label className="text-gray-700 font-medium text-sm">
               {content.slot.eventTypeLabel}
             </label>
             <Select
               selectedKeys={[bulkEventType]}
               onChange={(e) => setBulkEventType(e.target.value as EventType)}
               classNames={{
-                trigger: "bg-white dark:bg-gray-800",
-                value: "text-gray-900 dark:text-white",
-                listbox: "bg-white dark:bg-gray-800",
-                popoverContent: "bg-white dark:bg-gray-800",
+                trigger: "bg-white",
+                value: "text-gray-900",
+                listbox: "bg-white",
+                popoverContent: "bg-white",
               }}
             >
               {eventTypes.map((type) => (
-                <SelectItem key={type.value} textValue={type.label} className="text-gray-900 dark:text-white">
+                <SelectItem key={type.value} textValue={type.label} className="text-gray-900">
                   {type.label}
                 </SelectItem>
               ))}
@@ -297,7 +297,7 @@ export default function SlotForms({ restaurantId, defaultPrice, defaultCapacity,
           </div>
 
           <div className="flex flex-col gap-1">
-            <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
+            <label className="text-gray-700 font-medium text-sm">
               {content.slot.priceLabel}
             </label>
             <Input

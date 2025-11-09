@@ -117,7 +117,7 @@ export default function RestaurantForm({ regions, userId }: Props) {
       )}
 
       <div className="flex flex-col gap-1">
-        <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
+        <label className="text-gray-700 font-medium text-sm">
           {content.restaurant.nameLabel}
         </label>
         <Input
@@ -128,7 +128,7 @@ export default function RestaurantForm({ regions, userId }: Props) {
       </div>
 
       <div className="flex flex-col gap-1">
-        <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
+        <label className="text-gray-700 font-medium text-sm">
           {content.restaurant.descriptionLabel}
         </label>
         <Textarea
@@ -140,7 +140,7 @@ export default function RestaurantForm({ regions, userId }: Props) {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="flex flex-col gap-1">
-          <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
+          <label className="text-gray-700 font-medium text-sm">
             {content.restaurant.regionLabel}
           </label>
           <Select
@@ -148,14 +148,14 @@ export default function RestaurantForm({ regions, userId }: Props) {
             onChange={(e) => setFormData({ ...formData, regionId: e.target.value })}
             isRequired
             classNames={{
-              trigger: "bg-white dark:bg-gray-800",
-              value: "text-gray-900 dark:text-white",
-              listbox: "bg-white dark:bg-gray-800",
-              popoverContent: "bg-white dark:bg-gray-800",
+              trigger: "bg-white",
+              value: "text-gray-900",
+              listbox: "bg-white",
+              popoverContent: "bg-white",
             }}
           >
             {regions.map((region) => (
-              <SelectItem key={region.id} textValue={region.name} className="text-gray-900 dark:text-white">
+              <SelectItem key={region.id} textValue={region.name} className="text-gray-900">
                 {region.name}
               </SelectItem>
             ))}
@@ -163,7 +163,7 @@ export default function RestaurantForm({ regions, userId }: Props) {
         </div>
 
         <div className="flex flex-col gap-1">
-          <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
+          <label className="text-gray-700 font-medium text-sm">
             {content.restaurant.cityLabel}
           </label>
           <Input
@@ -175,7 +175,7 @@ export default function RestaurantForm({ regions, userId }: Props) {
       </div>
 
       <div className="flex flex-col gap-1">
-        <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
+        <label className="text-gray-700 font-medium text-sm">
           {content.restaurant.addressLabel}
         </label>
         <Input
@@ -187,7 +187,7 @@ export default function RestaurantForm({ regions, userId }: Props) {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="flex flex-col gap-1">
-          <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
+          <label className="text-gray-700 font-medium text-sm">
             {content.restaurant.phoneLabel}
           </label>
           <Input
@@ -197,7 +197,7 @@ export default function RestaurantForm({ regions, userId }: Props) {
         </div>
 
         <div className="flex flex-col gap-1">
-          <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
+          <label className="text-gray-700 font-medium text-sm">
             {content.restaurant.emailLabel}
           </label>
           <Input
@@ -208,7 +208,7 @@ export default function RestaurantForm({ regions, userId }: Props) {
         </div>
 
         <div className="flex flex-col gap-1">
-          <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
+          <label className="text-gray-700 font-medium text-sm">
             {content.restaurant.websiteLabel}
           </label>
           <Input
@@ -220,7 +220,7 @@ export default function RestaurantForm({ regions, userId }: Props) {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="flex flex-col gap-1">
-          <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
+          <label className="text-gray-700 font-medium text-sm">
             {content.restaurant.capacityLabel}
           </label>
           <Input
@@ -235,7 +235,7 @@ export default function RestaurantForm({ regions, userId }: Props) {
         </div>
 
         <div className="flex flex-col gap-1">
-          <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
+          <label className="text-gray-700 font-medium text-sm">
             {content.restaurant.priceLabel}
           </label>
           <Input
@@ -273,7 +273,7 @@ export default function RestaurantForm({ regions, userId }: Props) {
           <div key={index} className="space-y-2">
             <div className="flex gap-2 items-end">
               <div className="flex-1 flex flex-col gap-1">
-                <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
+                <label className="text-gray-700 font-medium text-sm">
                   {content.restaurant.imageLabel(index, index === 0)}
                 </label>
                 <Input

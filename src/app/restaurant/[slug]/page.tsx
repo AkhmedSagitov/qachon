@@ -25,7 +25,7 @@ export default async function RestaurantPage({
       {/* Back Button */}
       <Link
         href="/"
-        className="inline-block mb-4 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
+        className="inline-block mb-4 text-gray-600 hover:text-gray-900:text-gray-100"
       >
         {content.nav.backToList}
       </Link>
@@ -37,20 +37,20 @@ export default async function RestaurantPage({
         <div>
           <div className="mb-4">
             <h1 className="text-3xl font-bold mb-2">{restaurant.name}</h1>
-            <p className="text-lg text-gray-600 dark:text-gray-400">
+            <p className="text-lg text-gray-600">
               {restaurant.city}, {restaurant.region.name}
             </p>
           </div>
 
-          <p className="text-gray-700 dark:text-gray-300 mb-6">{restaurant.description}</p>
+          <p className="text-gray-700 mb-6">{restaurant.description}</p>
 
           <div className="grid grid-cols-2 gap-4 mb-6">
-            <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
-              <p className="text-sm text-gray-600 dark:text-gray-400">{content.restaurant.capacity}</p>
+            <div className="bg-gray-100 p-4 rounded-lg">
+              <p className="text-sm text-gray-600">{content.restaurant.capacity}</p>
               <p className="text-xl font-bold">{content.restaurant.capacityDisplay(restaurant.capacity)}</p>
             </div>
-            <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
-              <p className="text-sm text-gray-600 dark:text-gray-400">{content.restaurant.price}</p>
+            <div className="bg-gray-100 p-4 rounded-lg">
+              <p className="text-sm text-gray-600">{content.restaurant.price}</p>
               <p className="text-xl font-bold text-green-600">
                 {content.restaurant.priceFrom(Number(restaurant.pricePerHour).toLocaleString('ru-RU'))}
               </p>
@@ -99,7 +99,7 @@ export default async function RestaurantPage({
       {/* Available Slots */}
       <div>
         <h2 className="text-2xl font-bold mb-6">{content.slot.availableSlots}</h2>
-        <p className="text-gray-600 dark:text-gray-400 mb-4">
+        <p className="text-gray-600 mb-4">
           {content.slot.slotsDescription}
         </p>
         {slots && <SlotCalendar slots={slots} />}

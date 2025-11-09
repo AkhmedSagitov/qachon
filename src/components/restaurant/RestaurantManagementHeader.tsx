@@ -31,16 +31,16 @@ export default function RestaurantManagementHeader({ restaurant }: Props) {
       />
       <div className="flex-1">
         <h1 className="text-2xl font-bold mb-2">{restaurant.name}</h1>
-        <p className="text-gray-600 dark:text-gray-400 mb-2">
+        <p className="text-gray-600 mb-2">
           {restaurant.city}, {restaurant.region.name}
         </p>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">
+        <p className="text-sm text-gray-500 mb-3">
           {restaurant.address}
         </p>
         <div className="flex gap-2">
           <Link
             href={`/restaurant/${restaurant.slug}`}
-            className="px-3 py-1 text-sm border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+            className="px-3 py-1 text-sm border border-gray-300 rounded hover:bg-gray-100:bg-gray-700 transition"
           >
             {content.actions.viewDetails}
           </Link>

@@ -26,7 +26,7 @@ export default async function CreateRestaurantPage() {
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">
       <h1 className="text-3xl font-bold mb-8">{content.restaurant.addRestaurant}</h1>
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+      <div className="bg-white rounded-lg shadow-md p-6">
         <RestaurantForm regions={result.regions} userId={session.user.id} />
       </div>
     </div>

@@ -45,7 +45,7 @@ export default async function RestaurantManagementPage({
     <div className="container mx-auto px-4 py-8">
       <Link
         href="/owner/my-restaurants"
-        className="inline-block mb-4 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
+        className="inline-block mb-4 text-gray-600 hover:text-gray-900:text-gray-100"
       >
         {content.nav.backToList}
       </Link>
@@ -53,22 +53,22 @@ export default async function RestaurantManagementPage({
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Restaurant Info */}
         <div className="lg:col-span-2">
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+          <div className="bg-white rounded-lg shadow-md p-6">
             <RestaurantManagementHeader restaurant={serializedRestaurant} />
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              <div className="bg-gray-50 dark:bg-gray-700 p-3 rounded-lg">
-                <p className="text-xs text-gray-600 dark:text-gray-400">{content.restaurant.capacity}</p>
+              <div className="bg-gray-50 p-3 rounded-lg">
+                <p className="text-xs text-gray-600">{content.restaurant.capacity}</p>
                 <p className="text-xl font-bold">{serializedRestaurant.capacity}</p>
               </div>
-              <div className="bg-gray-50 dark:bg-gray-700 p-3 rounded-lg">
-                <p className="text-xs text-gray-600 dark:text-gray-400">{content.restaurant.price}</p>
+              <div className="bg-gray-50 p-3 rounded-lg">
+                <p className="text-xs text-gray-600">{content.restaurant.price}</p>
                 <p className="text-xl font-bold">
                   {serializedRestaurant.pricePerHour.toLocaleString('ru-RU')} {content.restaurant.currency}
                 </p>
               </div>
-              <div className="bg-gray-50 dark:bg-gray-700 p-3 rounded-lg">
-                <p className="text-xs text-gray-600 dark:text-gray-400">{content.restaurant.title}</p>
+              <div className="bg-gray-50 p-3 rounded-lg">
+                <p className="text-xs text-gray-600">{content.restaurant.title}</p>
                 <p className="text-xl font-bold">{serializedRestaurant._count.eventSlots}</p>
               </div>
             </div>
@@ -77,7 +77,7 @@ export default async function RestaurantManagementPage({
 
         {/* Quick Actions */}
         <div>
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+          <div className="bg-white rounded-lg shadow-md p-6">
             <h3 className="text-lg font-bold mb-4">{content.owner.quickActions}</h3>
             <div className="space-y-2">
               <Link
@@ -94,7 +94,7 @@ export default async function RestaurantManagementPage({
               </Link>
             </div>
 
-            <hr className="my-4 border-gray-200 dark:border-gray-700" />
+            <hr className="my-4 border-gray-200" />
 
             <DeleteRestaurantButton
               restaurantId={id}

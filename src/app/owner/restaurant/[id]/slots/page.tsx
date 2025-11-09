@@ -41,13 +41,13 @@ export default async function RestaurantSlotsPage({
     <div className="container mx-auto px-4 py-8">
       <Link
         href={`/owner/restaurant/${id}`}
-        className="inline-block mb-4 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
+        className="inline-block mb-4 text-gray-600 hover:text-gray-900:text-gray-100"
       >
         {content.nav.back}
       </Link>
 
       <h1 className="text-3xl font-bold mb-2">{content.slot.manageSlots}</h1>
-      <p className="text-gray-600 dark:text-gray-400 mb-8">{restaurant.name}</p>
+      <p className="text-gray-600 mb-8">{restaurant.name}</p>
 
       {/* Forms for creating slots */}
       <SlotForms

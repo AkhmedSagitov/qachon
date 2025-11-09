@@ -59,8 +59,8 @@ export default function SlotList({ slots, userId }: Props) {
 
   if (slots.length === 0) {
     return (
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-12 text-center">
-        <p className="text-lg text-gray-500 dark:text-gray-400">
+      <div className="bg-white rounded-lg shadow-md p-12 text-center">
+        <p className="text-lg text-gray-500">
           {content.slot.noSlots}
         </p>
       </div>
@@ -70,7 +70,7 @@ export default function SlotList({ slots, userId }: Props) {
   return (
     <div className="space-y-6">
       {Object.entries(slotsByDate).map(([dateKey, dateSlots]: [string, Slot[]]) => (
-        <div key={dateKey} className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+        <div key={dateKey} className="bg-white rounded-lg shadow-md p-6">
           <h3 className="text-lg font-bold mb-4">
             {format(new Date(dateKey), "d MMMM yyyy, EEEE", { locale: ru })}
           </h3>
@@ -78,22 +78,22 @@ export default function SlotList({ slots, userId }: Props) {
             {dateSlots.map((slot: Slot) => (
               <div
                 key={slot.id}
-                className="border border-gray-200 dark:border-gray-700 rounded-lg p-4"
+                className="border border-gray-200 rounded-lg p-4"
               >
                 <div className="flex justify-between items-start mb-2">
                   <div>
                     <p className="font-semibold">
                       ⏰ {slot.startTime} - {slot.endTime}
                     </p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                    <p className="text-sm text-gray-500">
                       {content.slot.capacityDisplay(slot.capacity)}
                     </p>
                   </div>
                   <span
                     className={`text-xs px-2 py-1 rounded ${
                       slot.isAvailable
-                        ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
-                        : "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200"
+                        ? "bg-green-100 text-green-800"
+                        : "bg-gray-100 text-gray-800"
                     }`}
                   >
                     {slot.isAvailable ? content.slot.available : content.slot.unavailable}
@@ -103,7 +103,7 @@ export default function SlotList({ slots, userId }: Props) {
                   {Number(slot.price).toLocaleString('ru-RU')} {content.slot.currency}
                 </p>
                 {slot.eventType && (
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">
+                  <p className="text-xs text-gray-500 mb-3">
                     {getEventTypeLabel(slot.eventType)}
                   </p>
                 )}

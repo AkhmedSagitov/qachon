@@ -26,7 +26,7 @@ export default function OwnerRestaurantCard({ restaurant }: Props) {
     restaurant.images?.find((img) => img.isPrimary) || restaurant.images?.[0];
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+    <div className="bg-white rounded-lg shadow-md overflow-hidden">
       <SafeImage
         src={primaryImage?.url}
         alt={restaurant.name}
@@ -40,25 +40,25 @@ export default function OwnerRestaurantCard({ restaurant }: Props) {
           <span
             className={`text-xs px-2 py-1 rounded ${
               restaurant.isActive
-                ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
-                : "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200"
+                ? "bg-green-100 text-green-800"
+                : "bg-red-100 text-red-800"
             }`}
           >
             {restaurant.isActive ? content.restaurant.active : content.restaurant.inactive}
           </span>
         </div>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">
+        <p className="text-sm text-gray-500 mb-3">
           {restaurant.city}, {restaurant.region.name}
         </p>
         <div className="flex gap-2 mb-4">
-          <span className="text-xs px-2 py-1 rounded bg-gray-100 dark:bg-gray-700">
+          <span className="text-xs px-2 py-1 rounded bg-gray-100">
             {content.restaurant.slotsCount(restaurant._count.eventSlots)}
           </span>
         </div>
         <div className="flex gap-2">
           <Link
             href={`/restaurant/${restaurant.slug}`}
-            className="flex-1 text-center px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+            className="flex-1 text-center px-3 py-2 text-sm border border-gray-300 rounded hover:bg-gray-100:bg-gray-700 transition"
           >
             {content.actions.viewDetails}
           </Link>

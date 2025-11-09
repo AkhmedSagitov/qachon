@@ -36,3 +36,15 @@ body {
   background-color: #6B0F1A; /* Deep burgundy background */
   color: #ffffff; /* White text */
 }
+
+/* Force modal centering on all screen sizes */
+[data-slot="wrapper"] {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 1rem !important;
+}
+
+[data-slot="base"] {
+  margin: 0 !important;
+}

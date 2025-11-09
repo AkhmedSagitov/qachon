@@ -64,14 +64,14 @@ const RegistrationForm = ({ onClose }: IProps) => {
             )}
 
             {success && (
-                <div className="bg-green-100 dark:bg-green-900 border-2 border-green-500 text-green-800 dark:text-green-200 p-4 rounded-lg text-base font-semibold flex items-center gap-2">
+                <div className="bg-green-100 border-2 border-green-500 text-green-800 p-4 rounded-lg text-base font-semibold flex items-center gap-2">
                     <span className="text-2xl">✓</span>
                     <span>{content.auth.registrationSuccess}</span>
                 </div>
             )}
 
             <div className="flex flex-col gap-0.5 w-full">
-                <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
+                <label className="text-gray-700 font-medium text-sm">
                     {content.auth.emailLabel}
                 </label>
                 <Input
@@ -82,8 +82,8 @@ const RegistrationForm = ({ onClose }: IProps) => {
                     value={formData.email}
                     className="w-full"
                     classNames={{
-                        inputWrapper: "bg-gray-100 dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700",
-                        input: "text-gray-900 dark:text-white text-sm focus:outline-none"
+                        inputWrapper: "bg-gray-100 border-2 border-gray-200",
+                        input: "text-gray-900 text-sm focus:outline-none"
                     }}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     validate={(value) => {
@@ -95,7 +95,7 @@ const RegistrationForm = ({ onClose }: IProps) => {
             </div>
 
             <div className="flex flex-col gap-0.5 w-full">
-                <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
+                <label className="text-gray-700 font-medium text-sm">
                     {content.auth.nameLabel}
                 </label>
                 <Input
@@ -104,15 +104,15 @@ const RegistrationForm = ({ onClose }: IProps) => {
                     value={formData.name}
                     className="w-full"
                     classNames={{
-                        inputWrapper: "bg-gray-100 dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700",
-                        input: "text-gray-900 dark:text-white text-sm focus:outline-none"
+                        inputWrapper: "bg-gray-100 border-2 border-gray-200",
+                        input: "text-gray-900 text-sm focus:outline-none"
                     }}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 />
             </div>
 
             <div className="flex flex-col gap-0.5 w-full">
-                <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
+                <label className="text-gray-700 font-medium text-sm">
                     {content.auth.phoneLabel}
                 </label>
                 <Input
@@ -121,15 +121,15 @@ const RegistrationForm = ({ onClose }: IProps) => {
                     value={formData.phone}
                     className="w-full"
                     classNames={{
-                        inputWrapper: "bg-gray-100 dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700",
-                        input: "text-gray-900 dark:text-white text-sm focus:outline-none"
+                        inputWrapper: "bg-gray-100 border-2 border-gray-200",
+                        input: "text-gray-900 text-sm focus:outline-none"
                     }}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 />
             </div>
 
             <div className="flex flex-col gap-0.5 w-full">
-                <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
+                <label className="text-gray-700 font-medium text-sm">
                     {content.auth.passwordLabel}
                 </label>
                 <Input
@@ -139,8 +139,8 @@ const RegistrationForm = ({ onClose }: IProps) => {
                     value={formData.password}
                     className="w-full"
                     classNames={{
-                        inputWrapper: "bg-gray-100 dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700",
-                        input: "text-gray-900 dark:text-white text-sm focus:outline-none"
+                        inputWrapper: "bg-gray-100 border-2 border-gray-200",
+                        input: "text-gray-900 text-sm focus:outline-none"
                     }}
                     onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                     validate={(value) => {
@@ -152,7 +152,7 @@ const RegistrationForm = ({ onClose }: IProps) => {
             </div>
 
             <div className="flex flex-col gap-0.5 w-full">
-                <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
+                <label className="text-gray-700 font-medium text-sm">
                     {content.auth.confirmPasswordLabel}
                 </label>
                 <Input
@@ -162,8 +162,8 @@ const RegistrationForm = ({ onClose }: IProps) => {
                     value={formData.confirmPassword}
                     className="w-full"
                     classNames={{
-                        inputWrapper: "bg-gray-100 dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700",
-                        input: "text-gray-900 dark:text-white text-sm focus:outline-none"
+                        inputWrapper: "bg-gray-100 border-2 border-gray-200",
+                        input: "text-gray-900 text-sm focus:outline-none"
                     }}
                     onChange={(e) =>
                         setFormData({ ...formData, confirmPassword: e.target.value })
@@ -177,7 +177,7 @@ const RegistrationForm = ({ onClose }: IProps) => {
             </div>
 
             <div className="flex w-[100%] gap-4 items-center pt-2 sm:pt-4 justify-end">
-                <Button variant="light" onPress={onClose} className="text-gray-700 dark:text-gray-300">
+                <Button variant="light" onPress={onClose} className="text-gray-700">
                     {content.actions.cancel}
                 </Button>
                 <Button color="primary" type="submit">

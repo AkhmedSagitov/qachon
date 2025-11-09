@@ -8,7 +8,7 @@ export default function AboutPage() {
         <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-uzbek-burgundy to-uzbek-champagne bg-clip-text text-transparent">
           {content.about.title}
         </h1>
-        <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+        <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
           {content.about.mainDescription}
         </p>
       </div>
@@ -116,10 +116,10 @@ export default function AboutPage() {
 // Компонент карточкаси
 function FeatureCard({ icon, title, description }: { icon: string; title: string; description: string }) {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-shadow p-6">
+    <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow p-6">
       <div className="text-4xl mb-4">{icon}</div>
-      <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-100">{title}</h3>
-      <p className="text-gray-600 dark:text-gray-400">{description}</p>
+      <h3 className="text-xl font-bold mb-2 text-gray-800">{title}</h3>
+      <p className="text-gray-600">{description}</p>
     </div>
   );
 }

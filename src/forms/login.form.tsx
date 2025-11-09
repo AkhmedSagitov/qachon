@@ -42,7 +42,7 @@ const LoginForm = ({ onClose }: IProps) => {
             )}
 
             <div className="flex flex-col gap-1 w-full">
-                <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
+                <label className="text-gray-700 font-medium text-sm">
                     {content.auth.emailLabel}
                 </label>
                 <Input
@@ -53,8 +53,8 @@ const LoginForm = ({ onClose }: IProps) => {
                     value={formData.email}
                     className="w-full"
                     classNames={{
-                        inputWrapper: "bg-gray-100 dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700",
-                        input: "text-gray-900 dark:text-white text-sm focus:outline-none"
+                        inputWrapper: "bg-gray-100 border-2 border-gray-200",
+                        input: "text-gray-900 text-sm focus:outline-none"
                     }}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     validate={(value) => {
@@ -65,7 +65,7 @@ const LoginForm = ({ onClose }: IProps) => {
             </div>
 
             <div className="flex flex-col gap-1 w-full">
-                <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
+                <label className="text-gray-700 font-medium text-sm">
                     {content.auth.passwordLabel}
                 </label>
                 <Input
@@ -76,8 +76,8 @@ const LoginForm = ({ onClose }: IProps) => {
                     value={formData.password}
                     className="w-full"
                     classNames={{
-                        inputWrapper: "bg-gray-100 dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700",
-                        input: "text-gray-900 dark:text-white text-sm focus:outline-none"
+                        inputWrapper: "bg-gray-100 border-2 border-gray-200",
+                        input: "text-gray-900 text-sm focus:outline-none"
                     }}
                     onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                     validate={(value) => {
@@ -88,7 +88,7 @@ const LoginForm = ({ onClose }: IProps) => {
             </div>
 
             <div className="flex w-[100%] gap-4 items-center pt-2 sm:pt-4 justify-end">
-                <Button variant="light" onPress={onClose} className="text-gray-700 dark:text-gray-300">
+                <Button variant="light" onPress={onClose} className="text-gray-700">
                     {content.actions.cancel}
                 </Button>
                 <Button color="primary" type="submit">

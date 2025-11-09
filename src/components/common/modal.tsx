@@ -26,16 +26,15 @@ const CustomModal = ({
             placement="center"
             scrollBehavior="inside"
             classNames={{
-                base: "bg-white dark:bg-gray-900",
-                backdrop: "bg-black/50",
-                wrapper: "items-center"
+                base: "bg-white",
+                backdrop: "bg-black/50"
             }}
         >
-            <ModalContent className="bg-white dark:bg-gray-900 my-4 mx-2">
-                <ModalHeader className="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
-                    <h3 className="text-xl text-gray-900 dark:text-white font-semibold">{title}</h3>
+            <ModalContent className="bg-white">
+                <ModalHeader className="border-b border-gray-200 bg-white">
+                    <h3 className="text-xl text-gray-900 font-semibold">{title}</h3>
                 </ModalHeader>
-                <ModalBody className="space-y-4 py-4 sm:py-6 bg-white dark:bg-gray-900">
+                <ModalBody className="space-y-4 py-4 sm:py-6 bg-white">
                     {children}
                 </ModalBody>
             </ModalContent>

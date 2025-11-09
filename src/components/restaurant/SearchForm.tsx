@@ -44,7 +44,7 @@ export default function SearchForm({ regions }: Props) {
     <div className="w-full space-y-4">
       {/* Name Search */}
       <div className="flex flex-col gap-1">
-        <label className="text-gray-700 dark:text-gray-300 font-bold text-sm">
+        <label className="text-gray-700 font-bold text-sm">
           {content.restaurant.name}
         </label>
         <Input
@@ -54,15 +54,15 @@ export default function SearchForm({ regions }: Props) {
           onKeyDown={(e) => e.key === "Enter" && handleSearch()}
           className="w-full"
           classNames={{
-            input: "text-gray-900 dark:text-white text-base",
-            inputWrapper: "bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 hover:border-blue-500 dark:hover:border-blue-500 h-12 min-h-[48px]",
+            input: "text-gray-900 text-base",
+            inputWrapper: "bg-white border-2 border-gray-300 hover:border-blue-500:border-blue-500 h-12 min-h-[48px]",
           }}
         />
       </div>
 
       {/* Region Select */}
       <div className="flex flex-col gap-1">
-        <label className="text-gray-700 dark:text-gray-300 font-bold text-sm">
+        <label className="text-gray-700 font-bold text-sm">
           {content.restaurant.region}
         </label>
         <Select
@@ -71,18 +71,18 @@ export default function SearchForm({ regions }: Props) {
           className="w-full"
           aria-label={content.form.selectRegion}
           classNames={{
-            trigger: "bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 hover:border-blue-500 dark:hover:border-blue-500 h-12 min-h-[48px]",
-            value: "text-gray-900 dark:text-white text-base",
+            trigger: "bg-white border-2 border-gray-300 hover:border-blue-500:border-blue-500 h-12 min-h-[48px]",
+            value: "text-gray-900 text-base",
             innerWrapper: "py-0",
-            listbox: "bg-white dark:bg-gray-800",
-            popoverContent: "bg-white dark:bg-gray-800",
+            listbox: "bg-white",
+            popoverContent: "bg-white",
           }}
         >
         {allRegions.map((region) => (
           <SelectItem
             key={region.slug}
             textValue={region.slug === "all" ? region.name : `${region.name} ${region._count.restaurants}`}
-            className="text-gray-900 dark:text-white"
+            className="text-gray-900"
           >
             {region.slug === "all" ? region.name : `${region.name} (${region._count.restaurants})`}
           </SelectItem>

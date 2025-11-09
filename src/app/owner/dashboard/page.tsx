@@ -29,12 +29,12 @@ export default async function OwnerDashboard() {
 
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-          <p className="text-sm text-gray-600 dark:text-gray-400">{content.owner.totalRestaurants}</p>
+        <div className="bg-white rounded-lg shadow-md p-6">
+          <p className="text-sm text-gray-600">{content.owner.totalRestaurants}</p>
           <p className="text-3xl font-bold">{restaurants.length}</p>
         </div>
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-          <p className="text-sm text-gray-600 dark:text-gray-400">{content.owner.activeSlots}</p>
+        <div className="bg-white rounded-lg shadow-md p-6">
+          <p className="text-sm text-gray-600">{content.owner.activeSlots}</p>
           <p className="text-3xl font-bold">
             {restaurants.reduce((sum, r) => sum + r._count.eventSlots, 0)}
           </p>

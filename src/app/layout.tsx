@@ -23,7 +23,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
     title: siteConfig.title,
-    description: siteConfig.description
+    description: siteConfig.description,
+    colorScheme: 'light'
 };
 
 export default async function RootLayout({
@@ -34,7 +35,7 @@ export default async function RootLayout({
     const session = await auth();
 
     return (
-        <html lang="en">
+        <html lang="en" className="light">
         <body
             className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >

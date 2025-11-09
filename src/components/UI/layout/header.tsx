@@ -102,7 +102,7 @@ export default function Header() {
                 <NavbarBrand>
                     <Link href="/" className="flex gap-2 items-center">
                         <Logo />
-                        <p className="font-bold text-uzbek-burgundy text-lg">{siteConfig.title}</p>
+                        <p className="font-bold text-uzbek-burgundy text-base sm:text-lg">{siteConfig.title}</p>
                     </Link>
                 </NavbarBrand>
             </NavbarContent>
@@ -111,33 +111,35 @@ export default function Header() {
                 {getNavItems()}
             </NavbarContent>
 
-            <NavbarContent justify="end">
+            <NavbarContent justify="end" className="gap-0.5 sm:gap-2 ml-auto sm:ml-0">
                 {status === "loading" ? (
                     <NavbarItem>
                         <span className="text-sm">{content.auth.loading}</span>
                     </NavbarItem>
                 ) : !isAuth ? (
                     <>
-                        {/* Login Button - Hidden on mobile */}
-                        <NavbarItem className="hidden sm:flex">
+                        {/* Login Button - Compact on mobile */}
+                        <NavbarItem>
                             <Button
                                 color="secondary"
                                 variant="flat"
+                                size="sm"
+                                className="min-w-[60px] sm:min-w-[80px] text-xs sm:text-sm px-2 sm:px-4"
                                 onPress={() => setIsLoginOpen(true)}
                             >
                                 {content.auth.login}
                             </Button>
                         </NavbarItem>
-                        {/* Register Button */}
+                        {/* Register Button - Compact on mobile */}
                         <NavbarItem>
                             <Button
                                 color="primary"
                                 variant="flat"
                                 size="sm"
+                                className="min-w-[70px] sm:min-w-[100px] text-xs sm:text-sm px-2 sm:px-4"
                                 onPress={() => setIsRegistrationOpen(true)}
                             >
-                                <span className="hidden sm:inline">{content.auth.register}</span>
-                                <span className="sm:hidden">{content.auth.loginShort}</span>
+                                {content.auth.register}
                             </Button>
                         </NavbarItem>
                     </>

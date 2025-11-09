@@ -38,44 +38,55 @@ async function main() {
 
   console.log('✅ Users created')
 
-  // 2. Create regions
+  // 2. Create regions - All regions of Uzbekistan
   console.log('🌍 Creating regions...')
 
-  const tashkent = await prisma.region.upsert({
-    where: { slug: 'tashkent' },
-    update: {},
-    create: {
-      name: 'Ташкент',
-      slug: 'tashkent',
-    },
-  })
+  const regionsData = [
+    { name: 'Тошкент шаҳри', slug: 'tashkent-city' },
+    { name: 'Тошкент вилояти', slug: 'tashkent-region' },
+    { name: 'Андижон', slug: 'andijan' },
+    { name: 'Бухоро', slug: 'bukhara' },
+    { name: 'Фарғона', slug: 'fergana' },
+    { name: 'Жиззах', slug: 'jizzakh' },
+    { name: 'Қашқадарё', slug: 'kashkadarya' },
+    { name: 'Навоий', slug: 'navoiy' },
+    { name: 'Наманган', slug: 'namangan' },
+    { name: 'Самарқанд', slug: 'samarkand' },
+    { name: 'Сирдарё', slug: 'sirdaryo' },
+    { name: 'Сурхондарё', slug: 'surkhandarya' },
+    { name: 'Хоразм', slug: 'khorezm' },
+    { name: 'Қорақалпоғистон', slug: 'karakalpakstan' },
+  ]
 
-  const samarkand = await prisma.region.upsert({
-    where: { slug: 'samarkand' },
-    update: {},
-    create: {
-      name: 'Самарканд',
-      slug: 'samarkand',
-    },
-  })
+  const createdRegions: any = {}
 
-  const bukhara = await prisma.region.upsert({
-    where: { slug: 'bukhara' },
-    update: {},
-    create: {
-      name: 'Бухара',
-      slug: 'bukhara',
-    },
-  })
+  for (const regionData of regionsData) {
+    const region = await prisma.region.upsert({
+      where: { slug: regionData.slug },
+      update: { name: regionData.name },
+      create: {
+        name: regionData.name,
+        slug: regionData.slug,
+      },
+    })
+    createdRegions[regionData.slug] = region
+  }
 
-  console.log('✅ Regions created')
+  // Keep backward compatibility variables
+  const tashkent = createdRegions['tashkent-city']
+  const samarkand = createdRegions['samarkand']
+  const bukhara = createdRegions['bukhara']
+
+  console.log(`✅ ${regionsData.length} regions created`)
 
   // 3. Create restaurants
   console.log('🍽️ Creating restaurants...')
 
   const restaurant1 = await prisma.restaurant.upsert({
     where: { slug: 'oqsaroy-palace' },
-    update: {},
+    update: {
+      regionId: tashkent.id,
+    },
     create: {
       name: 'Оқсарой',
       slug: 'oqsaroy-palace',
@@ -97,7 +108,9 @@ async function main() {
 
   const restaurant2 = await prisma.restaurant.upsert({
     where: { slug: 'registan-hall' },
-    update: {},
+    update: {
+      regionId: samarkand.id,
+    },
     create: {
       name: 'Регистан Холл',
       slug: 'registan-hall',
@@ -119,7 +132,9 @@ async function main() {
 
   const restaurant3 = await prisma.restaurant.upsert({
     where: { slug: 'shahriston-garden' },
-    update: {},
+    update: {
+      regionId: bukhara.id,
+    },
     create: {
       name: 'Шахристон Гарден',
       slug: 'shahriston-garden',
@@ -140,7 +155,9 @@ async function main() {
 
   const restaurant4 = await prisma.restaurant.upsert({
     where: { slug: 'silk-road-palace' },
-    update: {},
+    update: {
+      regionId: tashkent.id,
+    },
     create: {
       name: 'Шелковый Путь',
       slug: 'silk-road-palace',

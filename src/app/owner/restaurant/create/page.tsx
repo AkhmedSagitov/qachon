@@ -1,6 +1,6 @@
 import { auth } from "@/auth/auth";
 import { redirect } from "next/navigation";
-import { getRegions } from "@/actions/restaurant.actions";
+import { getAllRegions } from "@/actions/restaurant.actions";
 import RestaurantForm from "@/components/restaurant/RestaurantForm";
 import { content } from "@/content/text.content";
 
@@ -11,7 +11,7 @@ export default async function CreateRestaurantPage() {
     redirect("/");
   }
 
-  const result = await getRegions();
+  const result = await getAllRegions();
 
   if (!result.regions) {
     return (

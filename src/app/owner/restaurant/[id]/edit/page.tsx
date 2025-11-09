@@ -1,6 +1,6 @@
 import { auth } from "@/auth/auth";
 import { redirect } from "next/navigation";
-import { getRegions } from "@/actions/restaurant.actions";
+import { getAllRegions } from "@/actions/restaurant.actions";
 import prisma from "@/utils/prisma";
 import RestaurantEditForm from "@/components/restaurant/RestaurantEditForm";
 import Link from "next/link";
@@ -36,7 +36,7 @@ export default async function EditRestaurantPage({
     pricePerHour: Number(restaurant.pricePerHour),
   };
 
-  const { regions } = await getRegions();
+  const { regions } = await getAllRegions();
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">

@@ -373,9 +373,42 @@ export async function deleteRestaurant(id: string, userId: string) {
   }
 }
 
+/**
+ * Get all regions (for forms like restaurant creation/editing)
+ */
+export async function getAllRegions() {
+  try {
+    const regions = await prisma.region.findMany({
+      include: {
+        _count: {
+          select: {
+            restaurants: true,
+          },
+        },
+      },
+      orderBy: {
+        name: "asc",
+      },
+    });
+
+    return { success: true, regions };
+  } catch (error) {
+    console.error("Error fetching regions:", error);
+    return { error: content.restaurant.loadErrorRegions };
+  }
+}
+
+/**
+ * Get regions that have at least one restaurant (for search filters)
+ */
 export async function getRegions() {
   try {
     const regions = await prisma.region.findMany({
+      where: {
+        restaurants: {
+          some: {}, // Only include regions that have at least one restaurant
+        },
+      },
       include: {
         _count: {
           select: {

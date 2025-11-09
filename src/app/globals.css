@@ -1,0 +1,38 @@
+@import "tailwindcss";
+@source '../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+
+:root {
+  --background: #FAF8F5;
+  --foreground: #2C2C2C;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Custom Uzbek colors */
+  --color-uzbek-burgundy: #6B0F1A;
+  --color-uzbek-champagne: #C9A961;
+  --color-uzbek-slate: #2C3E50;
+  --color-uzbek-ivory: #FAF8F5;
+  --color-uzbek-charcoal: #1A1A1A;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Text selection styling with Burgundy Elegance */
+::selection {
+  background-color: #6B0F1A; /* Deep burgundy background */
+  color: #ffffff; /* White text */
+}
+
+::-moz-selection {
+  background-color: #6B0F1A; /* Deep burgundy background */
+  color: #ffffff; /* White text */
+}

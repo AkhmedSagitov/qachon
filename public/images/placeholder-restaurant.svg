@@ -1,0 +1,22 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#e5e7eb"/>
+
+  <!-- Restaurant icon -->
+  <g transform="translate(350, 150)">
+    <!-- Fork -->
+    <path d="M30 0 L30 50 M25 0 L25 20 M35 0 L35 20" stroke="#9ca3af" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <!-- Knife -->
+    <path d="M60 0 L60 50 M55 0 Q60 10 60 20" stroke="#9ca3af" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <!-- Plate -->
+    <ellipse cx="45" cy="70" rx="35" ry="5" fill="none" stroke="#9ca3af" stroke-width="3"/>
+  </g>
+
+  <!-- Text -->
+  <text x="400" y="280" font-family="system-ui, -apple-system, sans-serif" font-size="20" fill="#6b7280" text-anchor="middle" font-weight="500">
+    Изображение ресторана
+  </text>
+  <text x="400" y="310" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#9ca3af" text-anchor="middle">
+    Загрузите фото для отображения
+  </text>
+</svg>

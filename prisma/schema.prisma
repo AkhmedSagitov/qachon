@@ -1,0 +1,170 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  OWNER
+}
+
+model User {
+  id          String    @id @default(uuid())
+  email       String    @unique
+  password    String
+  role        UserRole  @default(OWNER)
+  name        String?
+  phone       String?
+
+  accounts      Account[]
+  sessions      Session[]
+  restaurants   Restaurant[]
+
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  @@map("users")
+}
+
+
+model Account {
+  id                 String  @id @default(cuid())
+  userId             String  @map("user_id")
+  type               String
+  provider           String
+  providerAccountId  String  @map("provider_account_id")
+  refresh_token      String? @db.Text
+  access_token       String? @db.Text
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String? @db.Text
+  session_state      String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique @map("session_token")
+  userId       String   @map("user_id")
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verification_tokens")
+}
+
+// Models for restaurant information system
+
+enum EventType {
+  WEDDING
+  BIRTHDAY
+  CORPORATE
+  ANNIVERSARY
+  OTHER
+}
+
+model Region {
+  id          String       @id @default(uuid())
+  name        String       @unique  // e.g., "Ташкент", "Самарканд", "Бухара"
+  slug        String       @unique  // e.g., "tashkent", "samarkand", "bukhara"
+  restaurants Restaurant[]
+
+  createdAt   DateTime     @default(now()) @map("created_at")
+  updatedAt   DateTime     @updatedAt @map("updated_at")
+
+  @@map("regions")
+}
+
+model Restaurant {
+  id          String           @id @default(uuid())
+  name        String
+  slug        String           @unique
+  description String?          @db.Text
+  address     String
+  city        String
+  latitude    Float?
+  longitude   Float?
+
+  ownerId     String           @map("owner_id")
+  owner       User             @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+
+  regionId    String           @map("region_id")
+  region      Region           @relation(fields: [regionId], references: [id], onDelete: Cascade)
+
+  phone       String?
+  email       String?
+  website     String?
+
+  capacity    Int              // Максимальная вместимость
+  pricePerHour Decimal         @default(0) @db.Decimal(10, 2)
+
+  isActive    Boolean          @default(true)
+
+  images      RestaurantImage[]
+  eventSlots  EventSlot[]
+
+  createdAt   DateTime         @default(now()) @map("created_at")
+  updatedAt   DateTime         @updatedAt @map("updated_at")
+
+  @@index([regionId])
+  @@index([ownerId])
+  @@map("restaurants")
+}
+
+model RestaurantImage {
+  id           String     @id @default(uuid())
+  url          String
+  alt          String?
+  isPrimary    Boolean    @default(false)
+
+  restaurantId String     @map("restaurant_id")
+  restaurant   Restaurant @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+
+  createdAt    DateTime   @default(now()) @map("created_at")
+
+  @@index([restaurantId])
+  @@map("restaurant_images")
+}
+
+model EventSlot {
+  id           String       @id @default(uuid())
+
+  restaurantId String       @map("restaurant_id")
+  restaurant   Restaurant   @relation(fields: [restaurantId], references: [id], onDelete: Cascade)
+
+  date         DateTime     @db.Date
+  startTime    DateTime     @db.Time
+  endTime      DateTime     @db.Time
+
+  eventType    EventType?
+  capacity     Int          // Вместимость для этого слота
+  price        Decimal      @db.Decimal(10, 2)
+
+  isAvailable  Boolean      @default(true)
+  description  String?      @db.Text
+
+  createdAt    DateTime     @default(now()) @map("created_at")
+  updatedAt    DateTime     @updatedAt @map("updated_at")
+
+  @@index([restaurantId, date])
+  @@index([date])
+  @@map("event_slots")
+}

@@ -9,7 +9,9 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/@heroui/theme/dist/components/(form|input|modal|navbar).js"
   ],
+  darkMode: 'class',
   plugins: [heroui({
+    defaultTheme: 'light',
     themes: {
       light: {
         colors: {

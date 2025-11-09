@@ -5,7 +5,7 @@ import { restaurantSchema } from "@/lib/validations/restaurant.schema";
 import { RestaurantFormData, SerializedRestaurantBasic } from "@/types/restaurant.types";
 import { revalidatePath } from "next/cache";
 import { auth } from "@/auth/auth";
-import { UserRole, Prisma } from "@/generated/prisma";
+import { Prisma } from "@/generated/prisma";
 import { content } from "@/content/text.content";
 
 type GetRestaurantsResult =

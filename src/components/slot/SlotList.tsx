@@ -31,7 +31,7 @@ export default function SlotList({ slots, userId }: Props) {
   const [deletingId, setDeletingId] = useState<string | null>(null);
 
   // Group slots by date
-  const slotsByDate = slots.reduce((acc: any, slot) => {
+  const slotsByDate = slots.reduce((acc: Record<string, Slot[]>, slot) => {
     const dateKey = format(new Date(slot.date), "yyyy-MM-dd");
     if (!acc[dateKey]) {
       acc[dateKey] = [];
@@ -69,7 +69,7 @@ export default function SlotList({ slots, userId }: Props) {
 
   return (
     <div className="space-y-6">
-      {Object.entries(slotsByDate).map(([dateKey, dateSlots]: [string, any]) => (
+      {Object.entries(slotsByDate).map(([dateKey, dateSlots]: [string, Slot[]]) => (
         <div key={dateKey} className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
           <h3 className="text-lg font-bold mb-4">
             {format(new Date(dateKey), "d MMMM yyyy, EEEE", { locale: ru })}

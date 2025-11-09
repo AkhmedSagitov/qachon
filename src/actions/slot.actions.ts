@@ -5,7 +5,6 @@ import { eventSlotSchema, bulkSlotSchema } from "@/lib/validations/slot.schema";
 import { EventSlotFormData, BulkSlotFormData } from "@/types/slot.types";
 import { revalidatePath } from "next/cache";
 import { auth } from "@/auth/auth";
-import { UserRole } from "@/generated/prisma";
 import { content } from "@/content/text.content";
 
 export async function getAvailableSlots(restaurantId: string, month?: Date) {

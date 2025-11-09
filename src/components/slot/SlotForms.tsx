@@ -60,7 +60,7 @@ export default function SlotForms({ restaurantId, defaultPrice, defaultCapacity,
       } else {
         alert(result.error || content.slot.createError);
       }
-    } catch (error) {
+    } catch {
       alert(content.slot.createError);
     } finally {
       setIsLoading(false);
@@ -96,7 +96,7 @@ export default function SlotForms({ restaurantId, defaultPrice, defaultCapacity,
       } else {
         alert(result.error || content.slot.createErrorMultiple);
       }
-    } catch (error) {
+    } catch {
       alert(content.slot.createErrorMultiple);
     } finally {
       setIsLoading(false);

@@ -6,6 +6,7 @@ import { createRestaurant } from "@/actions/restaurant.actions";
 import { useRouter } from "next/navigation";
 import { RegionWithCount } from "@/types/region.types";
 import { content } from "@/content/text.content";
+import Image from "next/image";
 
 interface Props {
   regions: RegionWithCount[];
@@ -317,9 +318,11 @@ export default function RestaurantForm({ regions, userId }: Props) {
             </div>
             {url && (
               <div className="ml-2">
-                <img
+                <Image
                   src={url}
                   alt={content.form.imagePreview(index)}
+                  width={80}
+                  height={80}
                   className="h-20 w-20 object-cover rounded border"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';

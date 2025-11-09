@@ -10,7 +10,7 @@ interface IProps {
 
 const AppLoader = ({ children }: IProps) => {
     const { data: session, status } = useSession();
-    const { isAuth, setAuthState } = useAuthStore();
+    const { setAuthState } = useAuthStore();
 
     useEffect(() => {
         setAuthState(status, session);

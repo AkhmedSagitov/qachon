@@ -533,6 +533,7 @@ export type Content = typeof content;
 // Ички контентни олиш учун ёрдамчи функция
 export function getText(path: string): string {
   const keys = path.split('.');
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let value: any = content;
 
   for (const key of keys) {

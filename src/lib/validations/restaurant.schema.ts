@@ -41,8 +41,7 @@ export const restaurantSchema = z.object({
     .max(1000, content.validation.capacityMax(1000)),
 
   pricePerHour: z.number({ message: content.validation.priceRequired })
-    .min(0, content.validation.priceNonNegative)
-    .max(1000000, content.validation.priceMax),
+    .min(0, content.validation.priceNonNegative),
 
   latitude: z.number()
     .min(-90, content.validation.latitudeRange)

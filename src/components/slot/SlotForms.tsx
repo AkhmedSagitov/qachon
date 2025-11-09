@@ -178,6 +178,7 @@ export default function SlotForms({ restaurantId, defaultPrice, defaultCapacity,
             <Select
               selectedKeys={[singleEventType]}
               onChange={(e) => setSingleEventType(e.target.value as EventType)}
+              aria-label={content.slot.eventTypeLabel}
               classNames={{
                 trigger: "bg-white",
                 value: "text-gray-900",
@@ -281,6 +282,7 @@ export default function SlotForms({ restaurantId, defaultPrice, defaultCapacity,
             <Select
               selectedKeys={[bulkEventType]}
               onChange={(e) => setBulkEventType(e.target.value as EventType)}
+              aria-label={content.slot.eventTypeLabel}
               classNames={{
                 trigger: "bg-white",
                 value: "text-gray-900",

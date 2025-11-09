@@ -153,6 +153,7 @@ export default function RestaurantEditForm({
             selectedKeys={[formData.regionId]}
             onChange={(e) => setFormData({ ...formData, regionId: e.target.value })}
             isRequired
+            aria-label={content.restaurant.regionLabel}
             classNames={{
               trigger: "bg-white",
               value: "text-gray-900",

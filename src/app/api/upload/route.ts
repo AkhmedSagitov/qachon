@@ -1,7 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { writeFile, mkdir } from 'fs/promises';
-import { join } from 'path';
-import { existsSync } from 'fs';
+import { put } from '@vercel/blob';
 import { content } from '@/content/text.content';
 
 export async function POST(request: NextRequest) {
@@ -34,30 +32,20 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-
     // Generate unique filename
     const timestamp = Date.now();
     const originalName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_');
-    const filename = `${timestamp}-${originalName}`;
+    const filename = `restaurants/${timestamp}-${originalName}`;
 
-    // Ensure upload directory exists
-    const uploadDir = join(process.cwd(), 'public', 'uploads', 'restaurants');
-    if (!existsSync(uploadDir)) {
-      await mkdir(uploadDir, { recursive: true });
-    }
-
-    // Save file
-    const filepath = join(uploadDir, filename);
-    await writeFile(filepath, buffer);
+    // Upload to Vercel Blob
+    const blob = await put(filename, file, {
+      access: 'public',
+    });
 
     // Return URL
-    const url = `/uploads/restaurants/${filename}`;
-
     return NextResponse.json({
       success: true,
-      url
+      url: blob.url
     });
 
   } catch (error) {

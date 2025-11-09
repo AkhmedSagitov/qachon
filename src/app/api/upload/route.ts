@@ -5,7 +5,9 @@ import { join } from 'path';
 import { existsSync } from 'fs';
 import { content } from '@/content/text.content';
 
-const isProduction = process.env.NODE_ENV === 'production';
+// Check if we're on Vercel (production or preview)
+const isVercel = !!process.env.VERCEL || !!process.env.BLOB_READ_WRITE_TOKEN;
+const isProduction = isVercel;
 
 export async function POST(request: NextRequest) {
   try {
@@ -44,9 +46,17 @@ export async function POST(request: NextRequest) {
 
     let url: string;
 
+    console.log('Environment check:', {
+      isVercel,
+      isProduction,
+      hasToken: !!process.env.BLOB_READ_WRITE_TOKEN,
+      NODE_ENV: process.env.NODE_ENV,
+      VERCEL: process.env.VERCEL
+    });
+
     if (isProduction) {
       // Production: Use Vercel Blob
-      console.log('Production mode: Attempting Vercel Blob upload');
+      console.log('Using Vercel Blob storage');
 
       // Check if token exists
       if (!process.env.BLOB_READ_WRITE_TOKEN) {
@@ -64,10 +74,11 @@ export async function POST(request: NextRequest) {
         access: 'public',
       });
 
-      console.log('Upload successful:', blob.url);
+      console.log('Vercel Blob upload successful:', blob.url);
       url = blob.url;
     } else {
       // Development: Save to local filesystem
+      console.log('Using local filesystem storage');
       const bytes = await file.arrayBuffer();
       const buffer = Buffer.from(bytes);
 
@@ -83,6 +94,7 @@ export async function POST(request: NextRequest) {
 
       // Return local URL
       url = `/uploads/restaurants/${filename}`;
+      console.log('Local upload successful:', url);
     }
 
     return NextResponse.json({

@@ -100,6 +100,8 @@ export default function RestaurantForm({ regions, userId }: Props) {
         return;
       }
 
+      // Refresh and navigate to see the new restaurant
+      router.refresh();
       router.push("/owner/my-restaurants");
     } catch (err) {
       console.error("Error submitting form:", err);

@@ -49,8 +49,8 @@ export async function getRestaurants(regionSlug?: string, searchName?: string, p
       include: {
         region: true,
         images: {
-          where: {
-            isPrimary: true,
+          orderBy: {
+            isPrimary: "desc",
           },
         },
         _count: {
@@ -145,8 +145,8 @@ export async function getMyRestaurants(userId: string) {
       include: {
         region: true,
         images: {
-          where: {
-            isPrimary: true,
+          orderBy: {
+            isPrimary: "desc",
           },
         },
         _count: {

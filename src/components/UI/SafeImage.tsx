@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface SafeImageProps {
   src: string | null | undefined;
@@ -25,6 +25,14 @@ export default function SafeImage({
 }: SafeImageProps) {
   const [imgSrc, setImgSrc] = useState(src || PLACEHOLDER_IMAGE);
   const [hasError, setHasError] = useState(false);
+
+  // Update imgSrc when src prop changes
+  useEffect(() => {
+    if (src) {
+      setImgSrc(src);
+      setHasError(false);
+    }
+  }, [src]);
 
   const handleError = () => {
     if (!hasError) {

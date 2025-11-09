@@ -87,7 +87,7 @@ const LoginForm = ({ onClose }: IProps) => {
                 />
             </div>
 
-            <div className="flex w-[100%] gap-4 items-center pt-4 justify-end">
+            <div className="flex w-[100%] gap-4 items-center pt-2 sm:pt-4 justify-end">
                 <Button variant="light" onPress={onClose} className="text-gray-700 dark:text-gray-300">
                     {content.actions.cancel}
                 </Button>

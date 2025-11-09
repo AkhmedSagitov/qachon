@@ -56,7 +56,7 @@ const RegistrationForm = ({ onClose }: IProps) => {
     }
 
     return (
-        <Form className="w-full flex flex-col gap-4" onSubmit={handleSubmit}>
+        <Form className="w-full flex flex-col gap-3" onSubmit={handleSubmit}>
             {error && (
                 <div className="bg-danger-50 text-danger p-3 rounded-md text-sm">
                     {error}
@@ -70,7 +70,7 @@ const RegistrationForm = ({ onClose }: IProps) => {
                 </div>
             )}
 
-            <div className="flex flex-col gap-1 w-full">
+            <div className="flex flex-col gap-0.5 w-full">
                 <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
                     {content.auth.emailLabel}
                 </label>
@@ -94,7 +94,7 @@ const RegistrationForm = ({ onClose }: IProps) => {
                 />
             </div>
 
-            <div className="flex flex-col gap-1 w-full">
+            <div className="flex flex-col gap-0.5 w-full">
                 <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
                     {content.auth.nameLabel}
                 </label>
@@ -111,7 +111,7 @@ const RegistrationForm = ({ onClose }: IProps) => {
                 />
             </div>
 
-            <div className="flex flex-col gap-1 w-full">
+            <div className="flex flex-col gap-0.5 w-full">
                 <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
                     {content.auth.phoneLabel}
                 </label>
@@ -128,7 +128,7 @@ const RegistrationForm = ({ onClose }: IProps) => {
                 />
             </div>
 
-            <div className="flex flex-col gap-1 w-full">
+            <div className="flex flex-col gap-0.5 w-full">
                 <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
                     {content.auth.passwordLabel}
                 </label>
@@ -151,7 +151,7 @@ const RegistrationForm = ({ onClose }: IProps) => {
                 />
             </div>
 
-            <div className="flex flex-col gap-1 w-full">
+            <div className="flex flex-col gap-0.5 w-full">
                 <label className="text-gray-700 dark:text-gray-300 font-medium text-sm">
                     {content.auth.confirmPasswordLabel}
                 </label>
@@ -176,7 +176,7 @@ const RegistrationForm = ({ onClose }: IProps) => {
                 />
             </div>
 
-            <div className="flex w-[100%] gap-4 items-center pt-4 justify-end">
+            <div className="flex w-[100%] gap-4 items-center pt-2 sm:pt-4 justify-end">
                 <Button variant="light" onPress={onClose} className="text-gray-700 dark:text-gray-300">
                     {content.actions.cancel}
                 </Button>

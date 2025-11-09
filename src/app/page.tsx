@@ -39,7 +39,7 @@ export default async function Home({
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-uzbek-burgundy">
           {content.home.title}
         </h1>
-        <p className="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6 px-2 max-w-2xl mx-auto">
+        <p className="hidden sm:block text-base md:text-lg text-gray-700 mb-4 sm:mb-6 px-2 max-w-2xl mx-auto leading-relaxed">
           {content.home.description}
         </p>
 

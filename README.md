@@ -483,9 +483,3 @@ pg_ctl -D "путь/к/data" stop    # Остановить PostgreSQL
 - [ ] API для мобильных приложений
 
 ## Лицензия
-
-MIT
-
-## Контакты
-
-GitHub: [https://github.com/Salimov-dev/next-course-final](https://github.com/Salimov-dev/next-course-final)
